@@ -1,0 +1,34 @@
+{
+  "name": "health-data-apollo",
+  "version": "1.0.0",
+  "description": "Query health data",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon  -e ts-node src/index.ts",
+    "start": "node dist/index.js",
+    "build": "tsc"
+  },
+  "keywords": [
+    "apollo",
+    "graphql"
+  ],
+  "author": "Pajasthecat",
+  "license": "ISC",
+  "dependencies": {
+    "@types/axios": "^0.14.0",
+    "@types/express-graphql": "^0.9.0",
+    "@types/graphql": "^14.5.0",
+    "@types/node": "^13.9.5",
+    "axios": "^0.19.2",
+    "express": "^4.17.1",
+    "express-graphql": "^0.9.0",
+    "graphql": "^14.6.0",
+    "nodemon": "^2.0.2",
+    "ts-node": "^8.8.1"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.3",
+    "tslint": "^6.1.0",
+    "typescript": "^3.8.3"
+  }
+}
