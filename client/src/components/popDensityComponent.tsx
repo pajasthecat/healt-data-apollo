@@ -15,11 +15,11 @@ const PopDensityComponent: React.FunctionComponent<Props> = ({ year }) => {
 
     if (data !== undefined) return (
         <CommonComponent
-            yaxisLabel={(x) => (`${x}st`)}
+            yaxisLabel={(x) => (`${x}`)}
             header={`Population density in ${year}`}
             loading={loading}
             graphInput={[data.popDensity.perSqKm
-                .map((g) => { return { x: g.country, y: g.value, label: `Population density in  ${year}` } })]}
+                .map((g) => { return { x: g.country, y: g.value, label: `Population density per sq/km in  ${year}` } })]}
         />
     );
     return <></>

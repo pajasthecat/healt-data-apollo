@@ -1,6 +1,6 @@
 import React from "react";
 import {
-    VictoryBar, VictoryChart, VictoryAxis, VictoryTheme, VictoryStack, VictoryTooltip, VictoryLabel
+    VictoryBar, VictoryChart, VictoryAxis, VictoryTheme, VictoryStack, VictoryTooltip
 } from 'victory';
 
 export interface CommonGraph {
@@ -34,12 +34,22 @@ const getBar = (input: GraphData[][]) => {
 
 const CommonGraphComponent: React.FunctionComponent<CommonGraph> = ({ input, yaxisLabel: yaxis }) => {
     return (
-        <VictoryChart domainPadding={20} theme={VictoryTheme.material}>
+        <VictoryChart
+            domainPadding={20} >
             <VictoryAxis
                 tickValues={getTickValues(input[0])}
                 tickFormat={getTickFormat(input[0])}>
             </VictoryAxis>
             <VictoryAxis
+                style={{
+                    grid: {
+                        stroke: ({ tick }) => tick % 2 == 0 ? 'black' : 'transparent',
+                        strokeWidth: 1
+                    },
+                    axis: {
+                        strokeWidth: 0
+                    }
+                }}
                 dependentAxis
                 tickFormat={yaxis}
             />
