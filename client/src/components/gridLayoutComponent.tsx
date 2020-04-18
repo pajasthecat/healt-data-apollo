@@ -19,7 +19,7 @@ interface Props {
 
 const GridLayoutComponent: React.FunctionComponent<Props> = ({ year }) => {
     return (
-        <Container>
+        <Container fluid>
             <Row>
                 <Col style={gridBoxStyle}>
                     <PerCapitaUsdComponent year={year} />
@@ -27,8 +27,6 @@ const GridLayoutComponent: React.FunctionComponent<Props> = ({ year }) => {
                 <Col style={gridBoxStyle}>
                     <PercentOfTotalExpenditureComponent year={year} />
                 </Col>
-            </Row>
-            <Row>
                 <Col style={gridBoxStyle}>
                     <HospitalBedComponent year={2010} />
                 </Col>
