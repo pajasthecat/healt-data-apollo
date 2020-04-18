@@ -1,9 +1,8 @@
 import React from 'react'
 import { QueryResponse } from '../querytypes';
 import { useQuery } from '@apollo/react-hooks';
-import CommonGraphComponent from '../graph/commonGraphComponent';
 import { HOSPITAL_BEDS } from '../queries';
-import { Spinner } from 'react-bootstrap';
+import CommonComponent from '../commonComponent';
 
 interface Props {
     year: number;
@@ -15,21 +14,17 @@ const HospitalBedComponent: React.FunctionComponent<Props> = ({ year }) => {
         variables: { year: year },
     });
 
-    const getGraph = (loading: boolean, data: QueryResponse | undefined) => {
-        if (loading) return <Spinner animation="grow" />
-        if (data === undefined) return
-        return <CommonGraphComponent input={[
-            data.healthExpenditures.hospitalBeds.map((g) => { return { x: g.country, y: g.value, label: `Amount of hospital beds in the year ${year}` } }),
-        ]}
-            yaxisLabel={(x) => (`${x}st`)} />
-    }
-
-    return (
-        <>
-            <h4>Amount of hospital beds in the year {year}</h4>
-            {getGraph(loading, data)}
-        </>
+    if (data !== undefined) return (
+        <CommonComponent
+            yaxisLabel={(x) => (`${x}st`)}
+            header={`Amount of hospital beds in ${year}`}
+            loading={loading}
+            graphInput={[
+                data!.healthExpenditures.hospitalBeds
+                    .map((g) => { return { x: g.country, y: g.value, label: `Amount of hospital beds in the year ${year}` } })]}
+        />
     );
+    return <></>
 }
 
 export default HospitalBedComponent;
