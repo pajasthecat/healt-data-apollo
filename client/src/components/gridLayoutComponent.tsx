@@ -23,7 +23,9 @@ const GridLayoutComponent: React.FunctionComponent = () => {
         <HospitalBedComponent year={year} />,
         <PerCapitaUsdComponent year={year} />]
 
-    const getComponents = (comp: JSX.Element[]) => comp.map(x => <Col xs={12} xl style={gridBoxStyle}>{x}</Col>)
+    const getComponents = (comp: JSX.Element[][]) => comp.map(row =>
+        <Row> {row.map(col =>
+            <Col xs={12} xl style={gridBoxStyle}>{col}</Col>)}</Row>)
 
     return (
         <Container fluid>
@@ -43,9 +45,7 @@ const GridLayoutComponent: React.FunctionComponent = () => {
                         setYear={setYear} />
                 </Col>
             </Row>
-            <Row>
-                {getComponents(firstRow)}
-            </Row>
+            {getComponents([firstRow])}
         </Container>
     )
 
