@@ -1,5 +1,5 @@
 import React from 'react'
-import './styles.css'
+import './graphLogo.css'
 
 const AnimatedLogo: React.FunctionComponent = () => {
     return (

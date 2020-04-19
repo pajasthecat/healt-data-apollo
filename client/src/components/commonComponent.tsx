@@ -1,6 +1,6 @@
 import React from "react";
 import CommonGraphComponent, { GraphData } from "./graph/commonGraphComponent";
-import AnimatedLogo from "../animations/animatedLogo";
+import AnimatedLogo from "../animations/graphLogo";
 
 interface Props {
     graphInput: GraphData[][] | undefined,
