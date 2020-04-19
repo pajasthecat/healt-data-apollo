@@ -1,6 +1,6 @@
 import React from "react";
 import {
-    VictoryBar, VictoryChart, VictoryAxis, VictoryTheme, VictoryStack, VictoryTooltip
+    VictoryBar, VictoryChart, VictoryAxis, VictoryStack, VictoryTooltip
 } from 'victory';
 
 export interface CommonGraph {
@@ -43,7 +43,7 @@ const CommonGraphComponent: React.FunctionComponent<CommonGraph> = ({ input, yax
             <VictoryAxis
                 style={{
                     grid: {
-                        stroke: ({ tick }) => tick % 2 == 0 ? 'black' : 'transparent',
+                        stroke: ({ tick }) => tick % 2 === 0 ? 'black' : 'transparent',
                         strokeWidth: 1
                     },
                     axis: {

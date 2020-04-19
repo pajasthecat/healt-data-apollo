@@ -1,6 +1,6 @@
 import React from "react";
 import CommonGraphComponent, { GraphData } from "./graph/commonGraphComponent";
-import { Spinner } from "react-bootstrap";
+import AnimatedLogo from "../animations/animatedLogo";
 
 interface Props {
     graphInput: GraphData[][] | undefined,
@@ -12,7 +12,8 @@ interface Props {
 const CommonComponent: React.FunctionComponent<Props> = ({ graphInput, yaxisLabel, header, loading }) => {
 
     const getGraph = (loading: boolean, data: GraphData[][] | undefined) => {
-        if (loading) return <Spinner animation="grow" />
+        if (loading) return <AnimatedLogo />
+
         if (data === undefined) return
         return <CommonGraphComponent input={data} yaxisLabel={yaxisLabel} />
     }

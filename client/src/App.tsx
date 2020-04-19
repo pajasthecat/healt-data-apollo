@@ -12,10 +12,7 @@ const App: React.FunctionComponent = () => {
 
   return (
     <ApolloProvider client={client}>
-      <h1 style={{ margin: "auto", display: "block", width: 400, padding: '20px', fontSize: '50px' }}>
-        Covid19 related data
-        </h1>
-      <GridLayoutComponent year={2015} />
+      <GridLayoutComponent />
     </ApolloProvider>
   );
 };

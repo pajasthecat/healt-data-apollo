@@ -1,0 +1,37 @@
+#Layer_Top {
+  display: block;
+  margin: 0 auto;
+  animation: top 10s ease;
+  height: 200;
+}
+
+#Layer_Axis {
+  animation: common 1s ease infinite;
+}
+
+#Layer_One {
+  opacity: 0;
+  animation: common 1s 0.1s ease infinite;
+}
+
+#Layer_Two {
+  opacity: 0;
+  animation: common 1s 0.2s ease infinite;
+}
+
+#Layer_Three {
+  opacity: 0;
+  animation: common 1s 0.3s ease infinite;
+}
+
+@keyframes common {
+  0% {
+    opacity: 1;
+  }
+  10% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
