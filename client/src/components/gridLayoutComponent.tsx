@@ -15,7 +15,16 @@ export const gridBoxStyle = {
 }
 
 const GridLayoutComponent: React.FunctionComponent = () => {
-    const [year, setYear] = useState(2000)
+    const [year, setYear] = useState(2014)
+
+    const firstRow = [
+        <PercentOfTotalExpenditureComponent year={year} />,
+        <PopDensityComponent year={year} />,
+        <HospitalBedComponent year={year} />,
+        <PerCapitaUsdComponent year={year} />]
+
+    const getComponents = (comp: JSX.Element[]) => comp.map(x => <Col xs={12} xl style={gridBoxStyle}>{x}</Col>)
+
     return (
         <Container fluid>
             <Row>
@@ -28,25 +37,14 @@ const GridLayoutComponent: React.FunctionComponent = () => {
                 </h1>
                 <Col>
                 </Col>
-                <Col xs={{ order: 12 }} style={{ textAlign: 'center', padding: '20px' }}>
+                <Col xl={{ order: 12 }} xs={12} style={{ textAlign: 'center', padding: '20px' }}>
                     <ChooseYearComponent
                         year={year}
                         setYear={setYear} />
                 </Col>
             </Row>
             <Row>
-                <Col xs={12} xl style={gridBoxStyle}>
-                    <PerCapitaUsdComponent year={year} />
-                </Col>
-                <Col xs={12} xl style={gridBoxStyle}>
-                    <PercentOfTotalExpenditureComponent year={year} />
-                </Col>
-                <Col xs={12} xl style={gridBoxStyle}>
-                    <HospitalBedComponent year={year} />
-                </Col>
-                <Col xs={12} xl style={gridBoxStyle}>
-                    <PopDensityComponent year={year} />
-                </Col>
+                {getComponents(firstRow)}
             </Row>
         </Container>
     )
